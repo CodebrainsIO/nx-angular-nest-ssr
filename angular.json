@@ -15,7 +15,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/apps/client-ssr",
+            "outputPath": "dist/browser",
             "index": "apps/client-ssr/src/index.html",
             "main": "apps/client-ssr/src/main.ts",
             "polyfills": "apps/client-ssr/src/polyfills.ts",
@@ -25,7 +25,9 @@
               "apps/client-ssr/src/favicon.ico",
               "apps/client-ssr/src/assets"
             ],
-            "styles": ["apps/client-ssr/src/styles.scss"],
+            "styles": [
+              "apps/client-ssr/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -85,7 +87,10 @@
               "apps/client-ssr/tsconfig.app.json",
               "apps/client-ssr/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/client-ssr/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/client-ssr/**"
+            ]
           }
         },
         "test": {
@@ -94,6 +99,24 @@
             "jestConfig": "apps/client-ssr/jest.config.js",
             "tsConfig": "apps/client-ssr/tsconfig.spec.json",
             "setupFile": "apps/client-ssr/src/test-setup.ts"
+          }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/server",
+            "main": "apps/client-ssr/src/main.server.ts",
+            "tsConfig": "apps/client-ssr/tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/client-ssr/src/environments/environment.ts",
+                  "with": "apps/client-ssr/src/environments/environment.prod.ts"
+                }
+              ]
+            }
           }
         }
       }
@@ -119,8 +142,13 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/client-ssr-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/client-ssr-e2e/**"]
+            "tsConfig": [
+              "apps/client-ssr-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/client-ssr-e2e/**"
+            ]
           }
         }
       }
@@ -138,7 +166,9 @@
             "outputPath": "dist/apps/api",
             "main": "apps/api/src/main.ts",
             "tsConfig": "apps/api/tsconfig.app.json",
-            "assets": ["apps/api/src/assets"]
+            "assets": [
+              "apps/api/src/assets"
+            ]
           },
           "configurations": {
             "production": {
@@ -167,7 +197,10 @@
               "apps/api/tsconfig.app.json",
               "apps/api/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/api/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/api/**"
+            ]
           }
         },
         "test": {
@@ -192,7 +225,10 @@
               "libs/api-interfaces/tsconfig.lib.json",
               "libs/api-interfaces/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/api-interfaces/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/api-interfaces/**"
+            ]
           }
         },
         "test": {
