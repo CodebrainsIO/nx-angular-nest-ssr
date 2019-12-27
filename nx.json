@@ -1,0 +1,24 @@
+{
+  "npmScope": "ssr-angular",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "client-ssr-e2e": {
+      "tags": []
+    },
+    "client-ssr": {
+      "tags": []
+    },
+    "api": {
+      "tags": []
+    },
+    "api-interfaces": {
+      "tags": []
+    }
+  }
+}
